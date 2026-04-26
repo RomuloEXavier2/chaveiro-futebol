@@ -9,8 +9,6 @@
 <style>
   :root {
     --c1: #1a1a2e;
-    --c2: #16213e;
-    --c3: #0f3460;
     --accent: #e94560;
     --accent2: #f5a623;
     --text: #f0f0f0;
@@ -20,307 +18,114 @@
     --radius: 16px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--c1);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--c1); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
-  /* TEAM SELECT SCREEN */
   #setup-screen {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1.5rem;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 2rem 1.5rem;
     background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0f3460 100%);
   }
   #setup-screen h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    letter-spacing: 3px;
-    text-align: center;
-    line-height: 1;
-    margin-bottom: 0.5rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 3px;
+    text-align: center; line-height: 1; margin-bottom: 0.5rem;
     background: linear-gradient(90deg, #fff 0%, var(--accent2) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
-  #setup-screen p {
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-  }
-  .search-box {
-    width: 100%;
-    max-width: 380px;
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
+  #setup-screen p { color: var(--muted); text-align: center; margin-bottom: 2rem; font-size: 0.95rem; }
+  .search-box { width: 100%; max-width: 380px; position: relative; margin-bottom: 1.5rem; }
   .search-box input {
-    width: 100%;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 0.85rem 1rem 0.85rem 2.8rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
+    width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px; padding: 0.85rem 1rem 0.85rem 2.8rem;
+    font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--text); outline: none; transition: border-color 0.2s;
   }
   .search-box input::placeholder { color: var(--muted); }
   .search-box input:focus { border-color: var(--accent); }
-  .search-icon {
-    position: absolute;
-    left: 0.9rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 1rem;
-  }
-  .teams-grid {
-    width: 100%;
-    max-width: 380px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    max-height: 55vh;
-    overflow-y: auto;
-    padding-right: 4px;
-  }
+  .search-icon { position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 1rem; }
+  .teams-grid { width: 100%; max-width: 380px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-height: 55vh; overflow-y: auto; padding-right: 4px; }
   .teams-grid::-webkit-scrollbar { width: 4px; }
-  .teams-grid::-webkit-scrollbar-track { background: transparent; }
   .teams-grid::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
   .team-btn {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 0.85rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    transition: all 0.18s ease;
-    color: var(--text);
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 0.85rem 0.5rem; display: flex; flex-direction: column;
+    align-items: center; gap: 8px; cursor: pointer; transition: all 0.18s ease; color: var(--text);
   }
-  .team-btn:hover {
-    border-color: var(--accent);
-    background: rgba(233,69,96,0.12);
-    transform: translateY(-2px);
-  }
-  .team-btn .badge {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
-  }
+  .team-btn:hover { border-color: var(--accent); background: rgba(233,69,96,0.12); transform: translateY(-2px); }
+  .team-btn .badge { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
   .team-btn span { font-size: 0.78rem; font-weight: 500; text-align: center; color: var(--muted); }
 
-  /* APP SCREEN */
   #app-screen { display: none; min-height: 100vh; }
-
-  .hero {
-    position: relative;
-    padding: 3rem 1.5rem 2rem;
-    text-align: center;
-    overflow: hidden;
-  }
+  .hero { position: relative; padding: 3rem 1.5rem 2rem; text-align: center; overflow: hidden; }
   .hero-overlay { position: absolute; inset: 0; z-index: 1; }
   .hero-content { position: relative; z-index: 2; }
-  .team-badge-big {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem;
-    margin: 0 auto 1rem;
-    border: 3px solid rgba(255,255,255,0.2);
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
-  }
-  .hero h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
+  .team-badge-big { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin: 0 auto 1rem; border: 3px solid rgba(255,255,255,0.2); box-shadow: 0 0 40px rgba(0,0,0,0.5); }
+  .hero h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 2px; line-height: 1; margin-bottom: 0.3rem; }
   .hero .subtitle { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
-  .change-team-btn {
-    margin-top: 1rem;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.5);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .change-team-btn { margin-top: 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
   .change-team-btn:hover { border-color: var(--accent); color: var(--accent); }
-
   .content { padding: 0 1.25rem 5rem; }
 
-  /* LIVE MATCH */
-  .live-match {
-    background: linear-gradient(135deg, #1a0a0a 0%, #2a0a15 100%);
-    border: 1px solid rgba(233,69,96,0.4);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    margin-bottom: 1.25rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .live-match::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-  }
-  .live-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(233,69,96,0.2);
-    border: 1px solid rgba(233,69,96,0.5);
-    color: var(--accent);
-    font-size: 0.72rem; font-weight: 600;
-    padding: 0.25rem 0.65rem;
-    border-radius: 20px; letter-spacing: 1px;
-    margin-bottom: 1rem;
-  }
-  .live-dot {
-    width: 7px; height: 7px;
-    background: var(--accent); border-radius: 50%;
-    animation: pulse 1s ease-in-out infinite;
-  }
+  .live-match { background: linear-gradient(135deg, #1a0a0a 0%, #2a0a15 100%); border: 1px solid rgba(233,69,96,0.4); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1.25rem; position: relative; overflow: hidden; }
+  .live-match::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+  .live-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(233,69,96,0.2); border: 1px solid rgba(233,69,96,0.5); color: var(--accent); font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 20px; letter-spacing: 1px; margin-bottom: 1rem; }
+  .live-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse 1s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
-  .scoreboard {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 0.5rem; margin-bottom: 0.75rem;
-  }
-  .scoreboard-team {
-    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
-  }
+  .scoreboard { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .scoreboard-team { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .scoreboard-team span { font-size: 0.78rem; color: var(--muted); font-weight: 500; text-align: center; }
-  .score-display {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem; letter-spacing: 8px; color: #fff; line-height: 1; padding: 0 1rem;
-  }
+  .score-display { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 8px; color: #fff; line-height: 1; padding: 0 1rem; }
   .match-time { text-align: center; color: var(--accent2); font-size: 0.85rem; font-weight: 600; }
   .match-competition { text-align: center; color: var(--muted); font-size: 0.75rem; margin-top: 0.25rem; }
 
-  /* TABS */
-  .tabs {
-    display: flex; gap: 6px; margin-bottom: 1.25rem;
-    overflow-x: auto; padding-bottom: 4px; scrollbar-width: none;
-  }
+  .tabs { display: flex; gap: 6px; margin-bottom: 1.25rem; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
   .tabs::-webkit-scrollbar { display: none; }
-  .tab {
-    white-space: nowrap;
-    background: transparent; border: 1px solid var(--card-border);
-    color: var(--muted); font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem; font-weight: 500;
-    padding: 0.5rem 1rem; border-radius: 20px;
-    cursor: pointer; transition: all 0.18s; flex-shrink: 0;
-  }
+  .tab { white-space: nowrap; background: transparent; border: 1px solid var(--card-border); color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.18s; flex-shrink: 0; }
   .tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-  /* CARDS */
-  .card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: var(--radius); padding: 1.1rem; margin-bottom: 0.85rem;
-  }
-  .card-title {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px;
-    color: var(--muted); text-transform: uppercase; margin-bottom: 0.85rem;
-  }
+  .card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 1.1rem; margin-bottom: 0.85rem; }
+  .card-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; margin-bottom: 0.85rem; }
 
-  /* RESULTS */
-  .result-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
+  .result-row { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .result-row:last-child { border-bottom: none; }
-  .result-teams { font-size: 0.88rem; font-weight: 500; flex: 1; }
   .result-score { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; margin: 0 0.75rem; }
-  .result-outcome {
-    width: 22px; height: 22px; border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
-  }
+  .result-outcome { width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
   .outcome-w { background: rgba(39,174,96,0.25); color: #27ae60; }
   .outcome-d { background: rgba(241,196,15,0.25); color: #f1c40f; }
   .outcome-l { background: rgba(231,76,60,0.25); color: #e74c3c; }
 
-  /* STANDINGS */
-  .standings-row {
-    display: flex; align-items: center;
-    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); gap: 8px;
-  }
+  .standings-row { display: flex; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); gap: 8px; }
   .standings-row:last-child { border-bottom: none; }
   .standings-pos { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; width: 22px; text-align: center; flex-shrink: 0; }
   .standings-team { flex: 1; font-size: 0.85rem; font-weight: 500; }
   .standings-stat { font-size: 0.8rem; color: var(--muted); width: 22px; text-align: center; flex-shrink: 0; }
   .standings-pts { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; width: 28px; text-align: right; flex-shrink: 0; }
-  .standings-header .standings-team,
-  .standings-header .standings-pos,
-  .standings-header .standings-pts,
-  .standings-header .standings-stat { color: var(--muted); font-size: 0.72rem; font-family: 'DM Sans', sans-serif; }
+  .standings-header .standings-team, .standings-header .standings-pos, .standings-header .standings-pts, .standings-header .standings-stat { color: var(--muted); font-size: 0.72rem; font-family: 'DM Sans', sans-serif; }
   .my-team-row { background: rgba(233,69,96,0.08); border-radius: 8px; }
   .my-team-row .standings-team { color: var(--accent); font-weight: 600; }
 
-  /* NEWS */
-  .news-item {
-    display: flex; gap: 0.75rem;
-    padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
+  .news-item { display: flex; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .news-item:last-child { border-bottom: none; }
-  .news-thumb {
-    width: 64px; height: 64px; border-radius: 10px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; background: var(--card-border);
-  }
+  .news-thumb { width: 64px; height: 64px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: var(--card-border); }
   .news-content-inner { flex: 1; }
   .news-title { font-size: 0.88rem; font-weight: 500; line-height: 1.35; margin-bottom: 4px; }
   .news-meta { font-size: 0.72rem; color: var(--muted); }
 
-  /* UPCOMING */
-  .upcoming-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.65rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
+  .upcoming-row { display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .upcoming-row:last-child { border-bottom: none; }
-  .upcoming-teams { font-size: 0.85rem; flex: 1; }
-  .upcoming-date { font-size: 0.75rem; color: var(--muted); text-align: right; }
   .upcoming-comp { font-size: 0.7rem; color: var(--accent2); }
+  .upcoming-date { font-size: 0.75rem; color: var(--muted); }
 
   .section { display: none; }
   .section.active { display: block; }
   .hidden { display: none !important; }
   .loading { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.9rem; }
 
-  @keyframes shimmer {
-    0% { background-position: -400px 0; }
-    100% { background-position: 400px 0; }
-  }
-  .skeleton {
-    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
-    background-size: 400px 100%;
-    animation: shimmer 1.4s infinite;
-    border-radius: 6px; height: 14px; margin-bottom: 8px;
-  }
-  .error-box {
-    background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3);
-    border-radius: 10px; padding: 1rem; color: #e74c3c; font-size: 0.85rem; text-align: center;
-  }
+  @keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+  .skeleton { background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%); background-size: 400px 100%; animation: shimmer 1.4s infinite; border-radius: 6px; height: 14px; margin-bottom: 8px; }
+  .error-box { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); border-radius: 10px; padding: 1rem; color: #e74c3c; font-size: 0.85rem; text-align: center; }
 </style>
 </head>
 <body>
 
-<!-- SETUP SCREEN -->
 <div id="setup-screen">
   <h1>MEU TIME</h1>
   <p>Escolha o time do seu coração</p>
@@ -331,7 +136,6 @@
   <div class="teams-grid" id="teams-grid"></div>
 </div>
 
-<!-- APP SCREEN -->
 <div id="app-screen">
   <div class="hero">
     <div class="hero-overlay" id="hero-overlay"></div>
@@ -344,7 +148,6 @@
   </div>
 
   <div class="content">
-    <!-- LIVE -->
     <div id="live-section" class="hidden">
       <div class="live-match">
         <div class="live-badge"><div class="live-dot"></div> AO VIVO</div>
@@ -354,7 +157,6 @@
       </div>
     </div>
 
-    <!-- TABS -->
     <div class="tabs">
       <button class="tab active" onclick="switchSection('results', this)">Últimos jogos</button>
       <button class="tab" onclick="switchSection('standings', this)">Tabela</button>
@@ -378,9 +180,8 @@
 </div>
 
 <script>
-// ── CONFIGURAÇÃO ─────────────────────────────────────────────
-// A chave da API fica segura no Cloudflare Worker — não exposta aqui.
 const PROXY_HOST = 'https://futebol-proxy.romuloexavier2.workers.dev';
+const SEASON = 2024; // Plano gratuito da API-Football suporta até 2024
 
 const TEAMS = [
   { id: 'flamengo',    apiId: 127,  name: 'Flamengo',      emoji: '🔴', color1: '#CC0000', city: 'Rio de Janeiro' },
@@ -400,24 +201,17 @@ const TEAMS = [
   { id: 'atleticopr',  apiId: 134,  name: 'Athletico-PR',  emoji: '🔴', color1: '#CC0000', city: 'Curitiba' },
 ];
 
-// ── CACHE ────────────────────────────────────────────────────
 const _cache = {};
 const CACHE_TTL = 3 * 60 * 1000;
-
-// ── ESTADO ───────────────────────────────────────────────────
 let currentTeam = null;
 
-// ── API ──────────────────────────────────────────────────────
 async function fetchAPI(endpoint) {
   const hit = _cache[endpoint];
   if (hit && Date.now() - hit.ts < CACHE_TTL) return hit.data;
-
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
-    const response = await fetch(`${PROXY_HOST}?path=${encodeURIComponent(endpoint)}`, {
-      signal: controller.signal
-    });
+    const response = await fetch(`${PROXY_HOST}?path=${encodeURIComponent(endpoint)}`, { signal: controller.signal });
     clearTimeout(timeout);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
@@ -429,20 +223,14 @@ async function fetchAPI(endpoint) {
   }
 }
 
-// ── UTILITÁRIOS ──────────────────────────────────────────────
 function formatDate(str) {
   const d = new Date(str);
   return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
     + ' ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 }
-function skeleton() {
-  return '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
-}
-function errorBox(msg) {
-  return `<div class="error-box">⚠️ ${msg}</div>`;
-}
+function skeleton() { return '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>'; }
+function errorBox(msg) { return `<div class="error-box">⚠️ ${msg}</div>`; }
 
-// ── TIME SELECT ──────────────────────────────────────────────
 function filterTeams(q) { renderTeamGrid(q.toLowerCase()); }
 
 function renderTeamGrid(filter = '') {
@@ -451,8 +239,7 @@ function renderTeamGrid(filter = '') {
     <button class="team-btn" onclick="selectTeam('${t.id}')">
       <div class="badge" style="background:${t.color1}20;border:2px solid ${t.color1}40">${t.emoji}</div>
       <span>${t.name}</span>
-    </button>
-  `).join('');
+    </button>`).join('');
 }
 
 function selectTeam(id) {
@@ -470,7 +257,6 @@ function resetTeam() {
   document.getElementById('setup-screen').style.display = 'flex';
 }
 
-// ── INIT ─────────────────────────────────────────────────────
 function initApp() {
   const t = currentTeam;
   document.getElementById('hero-badge').textContent = t.emoji;
@@ -479,7 +265,6 @@ function initApp() {
   document.getElementById('hero-subtitle').textContent = t.city + ' • Carregando...';
   document.getElementById('hero-overlay').style.background =
     `linear-gradient(to bottom, ${t.color1}55 0%, ${t.color1}11 60%, var(--c1) 100%)`;
-
   Promise.all([loadLiveMatch(), loadResults(), loadStandings(), loadUpcoming()]);
   loadNews();
 }
@@ -491,13 +276,11 @@ function switchSection(s, btn) {
   if (btn) btn.classList.add('active');
 }
 
-// ── AO VIVO ──────────────────────────────────────────────────
 async function loadLiveMatch() {
   const section = document.getElementById('live-section');
   section.classList.add('hidden');
   const data = await fetchAPI(`/fixtures?live=all&team=${currentTeam.apiId}`);
   if (!data?.response?.length) return;
-
   const m = data.response[0];
   section.classList.remove('hidden');
   document.getElementById('live-scoreboard').innerHTML = `
@@ -514,15 +297,18 @@ async function loadLiveMatch() {
   document.getElementById('live-comp').textContent = m.league.name;
 }
 
-// ── RESULTADOS ───────────────────────────────────────────────
 async function loadResults() {
   const el = document.getElementById('results-content');
   el.innerHTML = skeleton();
-  const data = await fetchAPI(`/fixtures?team=${currentTeam.apiId}&last=10`);
+  // FIX: plano gratuito não suporta "last=N", busca por temporada e pega os últimos
+  const data = await fetchAPI(`/fixtures?team=${currentTeam.apiId}&season=${SEASON}&status=FT`);
   if (!data?.response) { el.innerHTML = errorBox('Não foi possível carregar os resultados.'); return; }
 
-  el.innerHTML = `<div class="card-title">Últimos resultados</div>` +
-    data.response.map(r => {
+  // Pega os últimos 10 jogos finalizados (API retorna em ordem crescente)
+  const jogos = data.response.slice(-10).reverse();
+
+  el.innerHTML = `<div class="card-title">Últimos resultados — ${SEASON}</div>` +
+    jogos.map(r => {
       const isHome   = r.teams.home.id === currentTeam.apiId;
       const myGoals  = isHome ? r.goals.home  : r.goals.away;
       const oppGoals = isHome ? r.goals.away  : r.goals.home;
@@ -533,7 +319,7 @@ async function loadResults() {
       if (myGoals < oppGoals) { outcome = 'D'; cls = 'outcome-l'; color = '#e74c3c'; }
       return `
       <div class="result-row">
-        <div class="result-teams" style="display:flex;align-items:center;gap:6px;font-size:0.82rem;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.82rem;flex:1;">
           <img src="${oppLogo}" style="width:18px;height:18px;" alt="">
           ${isHome ? `<strong>${currentTeam.name}</strong> × ${oppName}` : `${oppName} × <strong>${currentTeam.name}</strong>`}
         </div>
@@ -543,13 +329,10 @@ async function loadResults() {
     }).join('');
 }
 
-// ── TABELA ───────────────────────────────────────────────────
 async function loadStandings() {
   const el = document.getElementById('standings-content');
   el.innerHTML = skeleton();
-  const now = new Date();
-  const season = now.getMonth() < 2 ? now.getFullYear() - 1 : now.getFullYear();
-  const data = await fetchAPI(`/standings?league=71&season=${season}`);
+  const data = await fetchAPI(`/standings?league=71&season=${SEASON}`);
   if (!data?.response?.length) { el.innerHTML = errorBox('Tabela indisponível.'); return; }
 
   const standings  = data.response[0].league.standings[0];
@@ -560,7 +343,7 @@ async function loadStandings() {
     `${currentTeam.city} • ${leagueName} — ${myPos}º lugar`;
 
   el.innerHTML = `
-    <div class="card-title">Classificação — ${leagueName} ${season}</div>
+    <div class="card-title">Classificação — ${leagueName} ${SEASON}</div>
     <div class="standings-row standings-header">
       <div class="standings-pos">#</div>
       <div class="standings-team">Time</div>
@@ -583,23 +366,29 @@ async function loadStandings() {
       </div>`).join('');
 }
 
-// ── PRÓXIMOS JOGOS ───────────────────────────────────────────
 async function loadUpcoming() {
   const el = document.getElementById('upcoming-content');
   el.innerHTML = skeleton();
-  const data = await fetchAPI(`/fixtures?team=${currentTeam.apiId}&next=10`);
+  // FIX: plano gratuito não suporta "next=N", busca por temporada e filtra jogos futuros
+  const data = await fetchAPI(`/fixtures?team=${currentTeam.apiId}&season=${SEASON}&status=NS`);
   if (!data?.response) { el.innerHTML = errorBox('Não foi possível carregar a agenda.'); return; }
-  if (!data.response.length) { el.innerHTML = '<div class="loading">Nenhum jogo agendado.</div>'; return; }
+
+  const agora = Date.now();
+  const proximos = data.response
+    .filter(g => new Date(g.fixture.date).getTime() > agora)
+    .slice(0, 10);
+
+  if (!proximos.length) { el.innerHTML = '<div class="loading">Nenhum jogo agendado.</div>'; return; }
 
   el.innerHTML = `<div class="card-title">Próximos jogos</div>` +
-    data.response.map(g => {
+    proximos.map(g => {
       const isHome  = g.teams.home.id === currentTeam.apiId;
       const oppName = isHome ? g.teams.away.name : g.teams.home.name;
       const oppLogo = isHome ? g.teams.away.logo : g.teams.home.logo;
       return `
       <div class="upcoming-row">
-        <div class="upcoming-teams">
-          <div style="display:flex;align-items:center;gap:6px;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;font-size:0.85rem;">
             <img src="${oppLogo}" style="width:18px;height:18px;" alt="">
             ${isHome ? `<strong>${currentTeam.name}</strong> × ${oppName}` : `${oppName} × <strong>${currentTeam.name}</strong>`}
           </div>
@@ -615,7 +404,6 @@ async function loadUpcoming() {
     }).join('');
 }
 
-// ── NOTÍCIAS (mock) ──────────────────────────────────────────
 function loadNews() {
   const headlines = [
     { icon: '📰', title: `Acompanhe todas as novidades do ${currentTeam.name}`, time: 'Agora', source: 'Meu Time News' },
@@ -633,13 +421,9 @@ function loadNews() {
           <div class="news-meta">${n.source} · ${n.time}</div>
         </div>
       </div>`).join('') +
-    `</div>
-    <div style="text-align:center;font-size:0.7rem;color:var(--muted);margin-top:8px;">
-      Notícias em tempo real em breve 🚀
-    </div>`;
+    `</div><div style="text-align:center;font-size:0.7rem;color:var(--muted);margin-top:8px;">Notícias em tempo real em breve 🚀</div>`;
 }
 
-// ── BOOT ─────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   renderTeamGrid();
   const saved = localStorage.getItem('meutime_team');
